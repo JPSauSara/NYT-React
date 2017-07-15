@@ -6,9 +6,13 @@ const Schema = mongoose.Schema;
 
 // Create the ArticleSchema with our schema class
 const ArticleSchema = new Schema({
-	title: {
-		type: String
+	// headline, a string, must be entered
+	headline: {
+		type: String,
+		required: true,
+		unique: true
 	},
+	//
 	date: {
 		type: Date
 	},
@@ -18,4 +22,5 @@ const ArticleSchema = new Schema({
 });
 
 const Article = mongoose.model("Article", ArticleSchema);
+
 module.exports = Article;
